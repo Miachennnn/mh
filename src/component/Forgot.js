@@ -19,7 +19,7 @@ const Forgot = () => {
 		if (email) {
 			if (emailErr === '') {
 				const actionCodeSettings = {
-					url: `http://localhost:3000/${digital}&${email}` //偷帶驗證碼
+					url: `https://stoic-rosalind-82d01d.netlify.app/${digital}&${email}` //偷帶驗證碼
 				};
 				sendPasswordResetEmail(authentication, email, actionCodeSettings)
 					.then((response) => {

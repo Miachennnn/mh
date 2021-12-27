@@ -127,12 +127,11 @@ const Signup = () => {
 						password: password
 					});
 					const actionCodeSettings = {
-						url: 'http://localhost:3000/login'
+						url: 'https://stoic-rosalind-82d01d.netlify.app/login'
 					};
 					await sendEmailVerification(response.user, actionCodeSettings);
 					setNext(true);
 				} catch (e) {
-					console.error('Error adding document: ', e);
 				}
 			} else setErrMsg('請檢查欄位格式');
 		} else setErrMsg('欄位不可以空白');

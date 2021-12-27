@@ -74,7 +74,6 @@ export default Verify;
 
 function getParameterByName(name) {
 	const url = new URL(window.location);
-	// console.log(url);
 	const { searchParams } = url;
 	return searchParams.getAll(name);
 }
