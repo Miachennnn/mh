@@ -64,3 +64,13 @@
 	border-radius: 50px 0 0 50px;
 	background-color: #00ade3;
 }
+:global(.backBtn) {
+	z-index: 1;
+	cursor: pointer;
+	position: absolute;
+	top: 34px;
+	left: 40px;
+	padding: 12px;
+	border-radius: 30px;
+	background-color: #eee;
+}

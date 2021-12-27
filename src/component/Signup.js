@@ -6,8 +6,7 @@ import Button from '@mui/material/Button';
 import { FormContext } from '../context/FormContext';
 import { validatePassword, validateEmail, validateUsername, validatePasswordAgain } from '../utils';
 import { getAuth, sendEmailVerification, createUserWithEmailAndPassword } from 'firebase/auth';
-import { useNavigate } from 'react-router-dom';
-
+import BackBtn from './BackBtn';
 const authentication = getAuth();
 
 const Signup = () => {
@@ -36,7 +35,6 @@ const Signup = () => {
 		errMsg,
 		setErrMsg
 	} = useContext(FormContext);
-	let navigate = useNavigate();
 	const form = (
 		<Box component="form" noValidate autoComplete="off">
 			<TextField
@@ -100,6 +98,7 @@ const Signup = () => {
 			<div className="errMsg">{errMsg}</div>
 		</Box>
 	);
+
 	const handleClick = async (e) => {
 		e.preventDefault();
 		const formData = [
@@ -140,6 +139,7 @@ const Signup = () => {
 	};
 	return (
 		<div className="box-wrapper">
+			<BackBtn />
 			<div className="box-content">
 				<div className="title" style={{ marginBottom: '26px' }}>
 					Signup

@@ -5,6 +5,7 @@ import Button from '@mui/material/Button';
 import { validateEmail } from '../utils';
 import { FormContext } from '../context/FormContext';
 import { getAuth, sendPasswordResetEmail } from 'firebase/auth';
+import BackBtn from './BackBtn';
 
 const authentication = getAuth();
 const Forgot = () => {
@@ -55,6 +56,7 @@ const Forgot = () => {
 	);
 	return (
 		<div className="box-wrapper">
+			<BackBtn />
 			<div className="box-content">
 				<div className="title" style={{ marginBottom: '26px' }}>
 					Forgot Password
