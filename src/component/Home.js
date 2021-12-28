@@ -34,9 +34,10 @@ const Home = () => {
 	});
 
 	return (
-		<div className="box-wrapper">
+		<div className={homeStyle.box_wrapper}>
 			<span className={homeStyle.user}>Hi {user}</span>
 			<div className={homeStyle.box_content}>
+				<div className="groupImg" />
 				<div className={homeStyle.msg}>LOGIN SUCCESS!</div>
 				<LogoutBtn
 					style={{ textAlign: 'center' }}

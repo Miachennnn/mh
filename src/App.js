@@ -5,6 +5,7 @@ import Login from './component/Login';
 import Forgot from './component/Forgot';
 import Signup from './component/Signup';
 import Verify from './component/Verify';
+import Redir from './component/Redir';
 function App() {
 	return (
 		<div className="App">
@@ -14,6 +15,7 @@ function App() {
 				<Route path="/signup" element={<Signup />} />
 				<Route path="/forgot" element={<Forgot />} />
 				<Route path="/verify" element={<Verify />} />
+				<Route path="/redirect" element={<Redir />} />
 			</Routes>
 		</div>
 	);

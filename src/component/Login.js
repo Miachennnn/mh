@@ -82,7 +82,14 @@ const Login = () => {
 							setPasswordErr(validatePassword(e.target.value));
 						}}
 					/>
-					<Button onClick={(e) => handleClick(e)} m={2} variant="contained" fullWidth margin="normal">
+					<Button
+						onClick={(e) => handleClick(e)}
+						type="submit"
+						m={2}
+						variant="contained"
+						fullWidth
+						margin="normal"
+					>
 						Login
 					</Button>
 					<Link className="left link" to="/forgot" onClick={() => clearAllState()}>

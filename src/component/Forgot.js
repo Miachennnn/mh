@@ -48,7 +48,7 @@ const Forgot = () => {
 				}}
 			/>
 
-			<Button onClick={(e) => handleClick(e)} variant="contained" fullWidth margin="normal">
+			<Button onClick={(e) => handleClick(e)} type="submit" variant="contained" fullWidth margin="normal">
 				SEND
 			</Button>
 			<div className="errMsg">{errMsg}</div>

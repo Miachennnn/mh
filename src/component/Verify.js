@@ -4,15 +4,12 @@ import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
 
 const Verify = () => {
-	const rule = /http:\/\/[A-Za-z0-9:]{1,}\/([A-Za-z0-9:]{1,})/; //擷取網址後的digital
-	const digital = getParameterByName('continueUrl')[0].match(rule)[1];
-	const indexStart = getParameterByName('continueUrl')[0].match(rule).input.indexOf('&') + 1;
-	const email = getParameterByName('continueUrl')[0]
-		.match(rule)
-		.input.slice(indexStart, getParameterByName('continueUrl')[0].match(rule).input.length);
-
+	const tempUrlFromContinueUrl = new URL(getParameterByName('continueUrl')[0]);
+	const hideInfoString = tempUrlFromContinueUrl.pathname.replace('/', '');
+	const digital = hideInfoString.slice(0, 6);
+	const email = hideInfoString.slice(7, hideInfoString.length);
 	const digitalArray = digital.split('');
-	console.log(window.location.search);
+
 	return (
 		<div className="box-wrapper">
 			<div className="box-content">

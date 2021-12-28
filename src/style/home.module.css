@@ -1,4 +1,16 @@
 :global(.box-wrapper) {
+	background: no-repeat center center url('/public/background/shutterstock_323534993.png');
+	text-align: center;
+	position: relative;
+	width: 100%;
+	overflow: hidden;
+	min-height: 100vh;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+.box_wrapper {
+	background: no-repeat center center url('/public/background/shutterstock_256537057.png');
 	text-align: center;
 	position: relative;
 	width: 100%;
@@ -42,12 +54,8 @@
 	text-align: center;
 	max-width: 640px;
 	width: 400px;
-	border-radius: 16px;
-	box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.16);
-	background-color: #fff;
 	margin: 0px auto;
 	padding: 65px 120px;
-	background-color: #333333;
 }
 .msg {
 	font-size: 42px;
@@ -72,5 +80,15 @@
 	left: 40px;
 	padding: 12px;
 	border-radius: 30px;
-	background-color: #eee;
+	background-color: #fff;
+}
+:global(.redirect) {
+	text-align: center;
+}
+:global(.groupImg) {
+	height: 250px;
+	background: url('/public/background/Group\ 1060.png');
+	background-size: contain;
+	background-repeat: no-repeat;
+	background-position: center center;
 }
