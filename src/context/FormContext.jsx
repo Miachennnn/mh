@@ -48,6 +48,7 @@ const FormContextProvier = (props) => {
 		setUsernameErr('');
 		setPasswordAgainErr('');
 		setPasswordErr('');
+		setErrMsg('');
 	};
 
 	return (

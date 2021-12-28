@@ -119,19 +119,24 @@ const Signup = () => {
 		if (formData.every(notEmpty)) {
 			if (formValidation.every(notError)) {
 				const db = getFirestore();
-				const response = await createUserWithEmailAndPassword(authentication, email, password);
 				try {
-					await setDoc(doc(collection(db, 'users'), email), {
-						email: email,
-						username: username,
-						password: password
-					});
-					const actionCodeSettings = {
-						url: 'https://stoic-rosalind-82d01d.netlify.app/login'
-					};
-					await sendEmailVerification(response.user, actionCodeSettings);
-					setNext(true);
-				} catch (e) {
+					const response = await createUserWithEmailAndPassword(authentication, email, password);
+					try {
+						await setDoc(doc(collection(db, 'users'), email), {
+							email: email,
+							username: username,
+							password: password
+						});
+						const actionCodeSettings = {
+							url: 'https://stoic-rosalind-82d01d.netlify.app/login'
+						};
+						await sendEmailVerification(response.user, actionCodeSettings);
+						setNext(true);
+					} catch (e) {
+						setErrMsg(e.code);
+					}
+				} catch (err) {
+					setErrMsg(err.code);
 				}
 			} else setErrMsg('請檢查欄位格式');
 		} else setErrMsg('欄位不可以空白');
