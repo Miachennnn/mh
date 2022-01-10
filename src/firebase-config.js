@@ -2,12 +2,12 @@ import { initializeApp } from 'firebase/app';
 import { getFirestore } from 'firebase/firestore';
 
 const firebaseConfig = {
-	apiKey: 'AIzaSyDimLGvcshlxCmTH-2LzERKYemDHRrxCag',
-	authDomain: 'mether-affcb.firebaseapp.com',
-	projectId: 'mether-affcb',
-	storageBucket: 'mether-affcb.appspot.com',
-	messagingSenderId: '445664186100',
-	appId: '1:445664186100:web:abb8212e741cb1628758a1'
+	apiKey: process.env.REACT_APP_API_KEY,
+	authDomain: process.env.REACT_APP_AUTHDOMAIN,
+	projectId: process.env.REACT_APP_PROJECTID,
+	storageBucket: process.env.REACT_APP_STORAGEBUCKET,
+	messagingSenderId: process.env.REACT_APP_MESSAGINGSENDERID,
+	appId: process.env.REACT_APP_APPID
 };
 
 // Initialize Firebase
