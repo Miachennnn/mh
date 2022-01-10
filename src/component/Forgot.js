@@ -2,7 +2,7 @@ import React, { useContext, useState } from 'react';
 import Box from '@mui/material/Box';
 import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
-import { validateEmail } from '../utils';
+import { onInputChange } from '../utils';
 import { FormContext } from '../context/FormContext';
 import { getAuth, sendPasswordResetEmail } from 'firebase/auth';
 import BackBtn from './BackBtn';
@@ -13,15 +13,19 @@ const Forgot = () => {
 		next,
 		setNext
 	] = useState(false);
+	const [
+		errMsg,
+		setErrMsg
+	] = useState('');
 	const handleClick = async (e) => {
 		const digital = Math.floor(100000 + Math.random() * 900000);
 		e.preventDefault();
-		if (email) {
-			if (emailErr === '') {
+		if (formState.email.val) {
+			if (formState.email.err === '') {
 				const actionCodeSettings = {
-					url: `https://stoic-rosalind-82d01d.netlify.app/${digital}&${email}` //偷帶驗證碼
+					url: `https://stoic-rosalind-82d01d.netlify.app/${digital}&${formState.email.val}` //偷帶驗證碼
 				};
-				sendPasswordResetEmail(authentication, email, actionCodeSettings)
+				sendPasswordResetEmail(authentication, formState.email.val, actionCodeSettings)
 					.then((response) => {
 						setNext(true);
 					})
@@ -31,21 +35,24 @@ const Forgot = () => {
 			} else setErrMsg('');
 		} else setErrMsg('欄位請勿空白');
 	};
-	const { email, setEmail, emailErr, setEmailErr, errMsg, setErrMsg } = useContext(FormContext);
+	const { formState, dispatch } = useContext(FormContext);
 
 	const form = (
 		<Box component="form" noValidate autoComplete="off">
 			<TextField
-				fullWidth
-				margin="normal"
+				style={{ width: '100%', marginBottom: '25px' }}
+				required
 				id="email"
-				label="E-mail"
-				onChange={(e) => setEmail(e.target.value)}
-				helperText={emailErr}
-				error={emailErr ? true : false}
-				onBlur={(e) => {
-					setEmailErr(validateEmail(e.target.value));
+				label="Account"
+				value={formState.email.val}
+				onChange={(e) => {
+					onInputChange('email', e.target.value, dispatch, formState);
 				}}
+				onBlur={(e) => {
+					onInputChange('email', e.target.value, dispatch, formState);
+				}}
+				helperText={formState.email.err}
+				error={formState.email.isErr}
 			/>
 
 			<Button onClick={(e) => handleClick(e)} type="submit" variant="contained" fullWidth margin="normal">
