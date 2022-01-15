@@ -7,7 +7,7 @@ const Redir = () => {
 		const url = new URL(window.location);
 		const currentMode = getParameterByName('mode')[0];
 		if (currentMode === 'verifyEmail') {
-			window.location.assign(`https://mether-affcb.firebaseapp.com/__/auth/action?${url.search}`);
+			window.location.assign(`https://${process.env.REACT_APP_AUTHDOMAIN}/__/auth/action?${url.search}`);
 		} else if (currentMode === 'resetPassword') {
 			navigate(`/verify${url.search}`);
 		}

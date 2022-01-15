@@ -48,7 +48,7 @@ const Verify = () => {
 					<Button
 						onClick={() => {
 							window.location.assign(
-								`https://mether-affcb.firebaseapp.com/__/auth/action?mode=${getParameterByName(
+								`https://${process.env.REACT_APP_AUTHDOMAIN}/__/auth/action?mode=${getParameterByName(
 									'mode'
 								)}&oobCode=${getParameterByName('oobCode')}&apiKey=${getParameterByName('apiKey')}`
 							);

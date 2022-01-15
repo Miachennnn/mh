@@ -128,7 +128,7 @@ const Signup = () => {
 						password: password.val
 					});
 					const actionCodeSettings = {
-						url: 'https://stoic-rosalind-82d01d.netlify.app/login'
+						url: 'https://logindemoxmia.netlify.app//login'
 					};
 					await sendEmailVerification(response.user, actionCodeSettings);
 					setNext(true);

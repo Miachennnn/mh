@@ -11,7 +11,7 @@
 3. useContext集中管理表單狀態
 4. useReducer更新狀態
 ## DEMO
-1. 線上 https://stoic-rosalind-82d01d.netlify.app/
+1. 線上 https://logindemoxmia.netlify.app/
 2. 本地 git colone後指令npm install，根目錄新建一個檔案 ".env.development.local" 加入以下參數並將其值改為你的 firebase API 相對應的值
 
 #### .env.development.local 參數

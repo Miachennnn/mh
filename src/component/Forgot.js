@@ -23,7 +23,7 @@ const Forgot = () => {
 		if (formState.email.val) {
 			if (formState.email.err === '') {
 				const actionCodeSettings = {
-					url: `https://stoic-rosalind-82d01d.netlify.app/${digital}&${formState.email.val}` //偷帶驗證碼
+					url: `https://logindemoxmia.netlify.app//${digital}&${formState.email.val}` //偷帶驗證碼
 				};
 				sendPasswordResetEmail(authentication, formState.email.val, actionCodeSettings)
 					.then((response) => {
